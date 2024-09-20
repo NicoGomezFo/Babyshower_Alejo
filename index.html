@@ -4,6 +4,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ruleta de Regalos Baby Shower</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Incluimos Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js"></script>
 </head>
 <body>
   <div class="container">
@@ -13,7 +16,6 @@
         <label for="name">Ingresa tu nombre:</label>
         <input type="text" id="name" placeholder="Nombre completo" required>
         <button type="button" id="spin-btn" onclick="spinWheel()">Girar Ruleta</button>
-        <button type="button" id="reset-btn" onclick="requestPassword()">Reiniciar Regalos</button>
       </form>
       <div id="result" class="result"></div>
     </div>
