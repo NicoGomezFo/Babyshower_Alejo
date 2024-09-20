@@ -1,53 +1,59 @@
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ruleta de Regalos Baby Shower</title>
-  <link rel="stylesheet" href="styles.css">
-  <!-- Incluimos Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js"></script>
-</head>
-<body>
-  <div class="container">
-    <div class="left-section">
-      <h1>Ruleta de Regalos</h1>
-      <form id="giftForm">
-        <label for="name">Ingresa tu nombre:</label>
-        <input type="text" id="name" placeholder="Nombre completo" required>
-        <button type="button" id="spin-btn" onclick="spinWheel()">Girar Ruleta</button>
-      </form>
-      <div id="result" class="result"></div>
-    </div>
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f4f6f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
 
-    <div class="center-section">
-      <!-- Contenedor de la ruleta -->
-      <div id="wheel-container">
-        <canvas id="wheel" width="400" height="400"></canvas>
-      </div>
-    </div>
+/* Hacemos que el contenedor se adapte mejor */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
 
-    <div class="right-section">
-      <h2>Lista de Regalos</h2>
-      <ul id="giftList">
-        <!-- La lista de regalos se cargará aquí -->
-      </ul>
+/* Mejora para que la rueda y las secciones se alineen mejor en móvil */
+.center-section {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-      <h2>Regalos Asignados</h2>
-      <ul id="assignedGifts"></ul>
-    </div>
-  </div>
+.left-section, .right-section {
+  width: 100%;
+  max-width: 500px;
+}
 
-  <!-- Modal para autenticación -->
-  <div id="passwordModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <p>Ingresa la contraseña de administrador:</p>
-      <input type="password" id="admin-password" placeholder="Contraseña" required>
-      <button type="button" onclick="resetGifts()">Reiniciar</button>
-    </div>
-  </div>
+/* Responsivo: en pantallas pequeñas, ajustamos la vista */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
 
-  <script src="scripts.js"></script>
-</body>
-</html>
+  .center-section {
+    max-width: 300px;
+  }
+
+  #wheel {
+    width: 100%;
+    height: auto;
+  }
+  
+  .result {
+    font-size: 20px;
+  }
+}
