@@ -57,3 +57,48 @@ body {
     font-size: 20px;
   }
 }
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruleta de Regalos Baby Shower</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Agregar Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="left-section">
+      <h1>Ruleta de Regalos</h1>
+      <form id="giftForm">
+        <label for="name">Ingresa tu nombre:</label>
+        <input type="text" id="name" placeholder="Nombre completo" required>
+        <button type="button" id="spin-btn" onclick="spinWheel()">Girar Ruleta</button>
+      </form>
+      <div id="result" class="result"></div>
+    </div>
+
+    <div class="center-section">
+      <!-- Contenedor de la ruleta -->
+      <div id="wheel-container">
+        <canvas id="wheel" width="400" height="400"></canvas>
+      </div>
+    </div>
+
+    <div class="right-section">
+      <h2>Lista de Regalos</h2>
+      <ul id="giftList">
+        <!-- La lista de regalos se cargará aquí -->
+      </ul>
+
+      <h2>Regalos Asignados</h2>
+      <ul id="assignedGifts"></ul>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
